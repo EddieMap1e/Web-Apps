@@ -1,0 +1,83 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: lightgoldenrodyellow;
+	font-size: 14px;
+	font-family: monospace;
+}
+
+.cmt {
+	color: green;
+	display: none;
+}
+
+.kwd {
+	color: red;
+	font-weight: bold;
+	display: none;
+}
+
+.type {
+	color: deepskyblue;
+	display: none;
+}
+
+.str {
+	color: orange;
+	display: none;
+}
+
+.func {
+	color: mediumblue;
+	display: none;
+}
+
+.wd {
+	color: black;
+	display: none;
+}
+
+.cursor {
+	display: none;
+}
+
+#Isay {
+	color: deepSkyBlue;
+	font-size: 28px;
+	font-family: "comic sans ms";
+	text-align: center;
+	display: none;
+}
+
+#time {
+	color: deepSkyBlue;
+	font-size: 15px;
+	font-family: "comic sans ms";
+	text-align: center;
+	margin-left: 20px;
+	display: none;
+}
+
+.digit {
+	font-size: 35px;
+	font-family: "digit";
+	color:red;
+	margin: 5px;
+	font-weight: bold;
+}
+
+#code {
+	position: absolute;
+	height: 500px;
+	top:50%;
+	margin-top: -250px;
+	left:2%;
+}
+
+#loveTime {
+	position: absolute;
+	top: 50%;
+	margin-top: -47px;
+	height: 94px;
+	left:50%;
+}
