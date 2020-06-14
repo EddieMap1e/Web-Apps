@@ -6,13 +6,13 @@
 		<script src="./vue.js"></script>
 		<script src="./jquery.js"></script>
 		<script src="./background.js"></script>
-		<script src="zButton.js"></script>
+		<script src="./zButton.js"></script>
 		<link rel="stylesheet" href="./layui/css/layui.css">
 		<script src="./layui/layui.js"></script>
 	</head>
 	<body>
 		<div id="main">
-			<background src="BG.jpg"></background>
+			<background src="./BG.jpg"></background>
 			<div :style="containerStyle">
 				<table lay-filter="student_table">
 					<thead>
@@ -58,14 +58,14 @@
 							}
 							for(var i=0;i<data.length;i++)
 								add(data[i]);
-							layui.use('table',function(){
+							/*layui.use('table',function(){
 								var table=layui.table;
 								table.init('student_table',{
 									height:250,
 									limit:10,
 									page:true
 								})
-							})
+							})*/
 						},
 						'json'
 					)
