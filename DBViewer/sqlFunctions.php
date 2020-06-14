@@ -5,7 +5,7 @@
 		if($conn===null){
 			//数据库参数可修改:(host,username,password)
 			$conn= mysqli_connect("localhost:3306","root","Maplestory");
-			mysqli_query($conn,'use final_homework');
+			mysqli_query($conn,'use dbviewer');
 			mysqli_query($conn,'set names utf8');
 		}
 		return $conn;
