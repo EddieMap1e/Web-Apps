@@ -105,7 +105,7 @@
 	
 	//数据库log日志记录
 	function mLog($str){
-		$filename=dirname(__DIR__).'/SQLlog.txt';
+		$filename='./SQLlog.txt';
 		$log="-----------------------------------------\n".date('Y/m/d H:i:s')."\n".$str."\n-----------------------------------------\n\n";
 		file_put_contents($filename,$log,FILE_APPEND);
 	}
