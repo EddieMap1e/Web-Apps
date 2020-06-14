@@ -3,10 +3,10 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>数据库可视化</title>
-		<script src="./vue.js"></script>
-		<script src="./jquery.js"></script>
-		<script src="./background.js"></script>
-		<script src="./zButton.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/background.js"></script>
+		<script src="js/zButton.js"></script>
 		<link rel="stylesheet" href="./layui/css/layui.css">
 		<script src="./layui/layui.js"></script>
 	</head>
@@ -45,9 +45,9 @@
 			},
 			methods:{
 				getStudentData:function(){
-					let add=this.addStudentRow;
+					var add=this.addStudentRow;
 					$.post(
-						'./getData.php',
+						'php/getData.php',
 						{
 							table_name:'Student',
 						},
