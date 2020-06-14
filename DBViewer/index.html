@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数据库可视化</title>
+		<script src="./vue.js"></script>
+		<script src="./jquery.js"></script>
+		<script src="./background.js"></script>
+		<script src="zButton.js"></script>
+		<link rel="stylesheet" href="./layui/css/layui.css">
+		<script src="./layui/layui.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<background src="BG.jpg"></background>
+			<div :style="containerStyle">
+				<table lay-filter="student_table">
+					<thead>
+						<tr>
+							<th lay-data="{field:'Sno', width:150, sort:true}">学号</th>
+							<th lay-data="{field:'Sname', width:150, sort:true}">姓名</th>
+							<th lay-data="{field:'Ssex', width:89, sort:true}">性别</th>
+							<th lay-data="{field:'Sbirthday', width:150, sort:true}">生日</th>
+							<th lay-data="{field:'Shometown', width:100, sort:true}">家乡</th>
+							<th lay-data="{field:'Smajor', width:150, sort:true}">专业</th>
+							<th lay-data="{field:'Stutor', width:100, sort:true}">导师id</th>
+							<th lay-data="{field:'Sdorm', width:100, sort:true}">宿舍</th>
+						</tr>
+						<tbody id='student_table'></tbody>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#main',
+			data:{
+				containerStyle:{
+					width:'1000px',
+					height:'auto',
+					margin:'auto',
+					backgroundColor:'rgb(255,255,255)'
+				},
+			},
+			methods:{
+				getStudentData:function(){
+					let add=this.addStudentRow;
+					$.post(
+						'./getData.php',
+						{
+							table_name:'student',
+						},
+						function(data,status){
+							if(typeof(data)!='object'){
+								alert(data);
+								return;
+							}
+							for(var i=0;i<data.length;i++)
+								add(data[i]);
+							layui.use('table',function(){
+								var table=layui.table;
+								table.init('student_table',{
+									height:250,
+									limit:10,
+									page:true
+								})
+							})
+						},
+						'json'
+					)
+				},
+				addStudentRow:function(data){
+					$('#student_table').append(
+						'<tr>'+
+							'<td>'+data['Sno']+'</td>'+
+							'<td>'+data['Sname']+'</td>'+
+							'<td>'+data['Ssex']+'</td>'+
+							'<td>'+data['Sbirthday']+'</td>'+
+							'<td>'+data['Shometown']+'</td>'+
+							'<td>'+data['Smajor']+'</td>'+
+							'<td>'+data['Stutor']+'</td>'+
+							'<td>'+data['Sdorm']+'</td>'+
+						'</tr>'
+					)
+				}
+			},
+			mounted() {
+				this.getStudentData();
+			}
+		});
+	</script>
+</html>
