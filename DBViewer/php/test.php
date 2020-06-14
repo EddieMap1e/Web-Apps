@@ -6,5 +6,6 @@
 		echo json_encode("连接数据库失败");
 		exit;
     }
-    echo json_encode('fuck');
+    $data=mGetAll($table_name);
+    echo json_encode($data);
 ?>
