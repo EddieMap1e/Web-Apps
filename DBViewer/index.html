@@ -45,25 +45,13 @@
 			},
 			methods:{
 				getStudentData:function(){
-					console.log('enter getStuData');
 					var add=this.addStudentRow;
-					console.log('add get');
-					$.post('./php/test.php',
-					{
-						table_name:'Student'
-					},
-					function(data,status){
-						console.log(data);
-						console.log(status);
-					},'json');
-					/*$.post(
+					$.post(
 						'./php/getData.php',
 						{
 							table_name:'Student',
 						},
 						function(data,status){
-							console.log(data);
-							console.log(status);
 							if(typeof(data)!='object'){
 								alert(data);
 								return;
@@ -80,8 +68,7 @@
 							})
 						},
 						'json'
-					);*/
-					console.log('post finished');
+					);
 				},
 				addStudentRow:function(data){
 					$('#student_table').append(
@@ -99,9 +86,7 @@
 				}
 			},
 			mounted() {
-				console.log('enter mounted');
 				this.getStudentData();
-				console.log('leave mounted');
 			}
 		});
 	</script>
