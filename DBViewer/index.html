@@ -52,20 +52,22 @@
 							table_name:'Student',
 						},
 						function(data,status){
+							console.log(data);
+							console.log(status);
 							if(typeof(data)!='object'){
 								alert(data);
 								return;
 							}
 							for(var i=0;i<data.length;i++)
 								add(data[i]);
-							/*layui.use('table',function(){
+							layui.use('table',function(){
 								var table=layui.table;
 								table.init('student_table',{
 									height:250,
 									limit:10,
 									page:true
 								})
-							})*/
+							})
 						},
 						'json'
 					)
