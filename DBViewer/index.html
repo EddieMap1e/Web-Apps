@@ -45,9 +45,11 @@
 			},
 			methods:{
 				getStudentData:function(){
+					console.log('enter getStuData');
 					var add=this.addStudentRow;
+					console.log('add get');
 					$.post(
-						'php/getData.php',
+						'./php/getData.php',
 						{
 							table_name:'Student',
 						},
@@ -70,7 +72,8 @@
 							})
 						},
 						'json'
-					)
+					);
+					console.log('post finished');
 				},
 				addStudentRow:function(data){
 					$('#student_table').append(
